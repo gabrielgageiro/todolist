@@ -2,6 +2,7 @@ package com.example.todolist.todolist.todolist;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +28,7 @@ public class TodoController {
     }
 
     @PostMapping
-    public List<Todo> save(@RequestBody Todo todo) {
+    public List<Todo> save(@RequestBody @Valid Todo todo) {
         todoService.save(todo);
         return todoService.findAll();
     }
