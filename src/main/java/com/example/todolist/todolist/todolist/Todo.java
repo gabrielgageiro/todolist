@@ -1,15 +1,18 @@
 package com.example.todolist.todolist.todolist;
 
 import com.example.todolist.todolist.todolist.prioridade.Prioridade;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+@Entity(name = "todos")
 @Table(name = "todos")
 public class Todo {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
 
     @NotBlank
     @NotNull
@@ -68,5 +71,13 @@ public class Todo {
 
     public void setPrioridade(Prioridade prioridade) {
         this.prioridade = prioridade;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
