@@ -40,6 +40,10 @@ public class Todo {
         this.realizado = realizado;
         this.prioridade = prioridade;
     }
+    public Todo(Long id,String nome, String descricao, boolean realizado, Prioridade prioridade) {
+        this(nome, descricao, realizado, prioridade);
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
